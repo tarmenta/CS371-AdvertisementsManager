@@ -24,7 +24,7 @@ CREATE TABLE advertisements(
     advertisement_title VARCHAR(100),
     advertisement_details VARCHAR(100),
     advertisement_date DATE,
-    price DECIMAL(10,2),
+    price FLOAT(10,2),
     user_id	VARCHAR(20),
     moderator_id VARCHAR(20),
     category_id	VARCHAR(5),
