@@ -10,7 +10,7 @@ const Advertisements = ({advertisements}) => {
             <h4> {advertisements.advertisement_title} </h4>
             <p> {advertisements.advertisement_details} </p>
             <p> {advertisements.advertisement_date} </p>
-            <p> ${advertisements.price} </p>
+            <p> {advertisements.price} </p>
             <p> {advertisements.category_id} </p>
             <p> {advertisements.user_id} </p>
             <p> {advertisements.moderator_id} </p>
