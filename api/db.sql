@@ -1,3 +1,6 @@
+CREATE database advertisement_manager;
+USE advertisement_manager;
+
 CREATE TABLE categories(
 	category_id	VARCHAR(5) PRIMARY KEY,
 	category_name VARCHAR(40)

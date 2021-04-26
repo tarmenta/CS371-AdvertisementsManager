@@ -38,7 +38,7 @@ class Advertisements(Resource):
 
             app.db.session.add(new_advertisement)
             app.db.session.commit()
-            return make_response(jsonify({'Success: Advertisement created'}), 200)
+            return make_response('Success: Advertisement created', 200)
         except Exception as e:
             return make_response("Error: " + str(e), 500)
 
