@@ -1,25 +1,34 @@
-import React from 'react'
+import React from "react";
+import { Table } from "semantic-ui-react";
 
-const Advertisements = ({advertisements}) => {
-    return (
-    <ul>
-      <h2> Advertisement List </h2>
-      {advertisements.map((advertisements) => {
-        return (
-          <li key={advertisements.advertisement_id}>
-            <h4> {advertisements.advertisement_title} </h4>
-            <p> {advertisements.advertisement_details} </p>
-            <p> {advertisements.advertisement_date} </p>
-            <p> {advertisements.price} </p>
-            <p> {advertisements.category_id} </p>
-            <p> {advertisements.user_id} </p>
-            <p> {advertisements.moderator_id} </p>
-            <p> {advertisements.status_id} </p>
-          </li>
-        );
-      })}
-    </ul>
-    )
+const Advertisements = (props) => {
+  const { advertisements } = props;
+
+  const adRows = (
+    advertisements.map((advertisement) => {
+      return(
+      <Table.Row>
+        <Table.Cell>{advertisement.advertisement_id}</Table.Cell>
+        <Table.Cell>{advertisement.advertisement_title}</Table.Cell>
+        <Table.Cell>{advertisement.price}</Table.Cell>
+        <Table.Cell>{advertisement.category_id}</Table.Cell>
+      </Table.Row>
+  )}));
+
+  return (
+    <Table celled>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell>ID</Table.HeaderCell>
+          <Table.HeaderCell>Title</Table.HeaderCell>
+          <Table.HeaderCell>Price</Table.HeaderCell>
+          <Table.HeaderCell>Category</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+
+      {adRows}
+    </Table>
+  );
 };
 
-export default Advertisements
+export default Advertisements;
