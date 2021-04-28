@@ -18,7 +18,7 @@ const Login = () => {
 
         <Form.Field>
           <Form.Input placeholder='Password' value={login_password}
-            onChange={(e) => setPass(e.target.value)}></Form.Input>>
+            onChange={(e) => setPass(e.target.value)}></Form.Input>
         </Form.Field>
 
         <Form.Field>
