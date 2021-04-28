@@ -3,6 +3,7 @@ import Advertisements from "./components/advertisements";
 import AdvertisementForm from "./components/advertisementForm";
 import { Container } from "semantic-ui-react";
 import Login from "./components/Login"
+import Register from "./components/Register"
 
 const App = () => {
   const [ads, setAds] = useState([]);
@@ -21,8 +22,8 @@ const App = () => {
   return (
     <div>
       <Container style={{ marginTop: 40, width: "80%" }}>
-        <AdvertisementForm />
-        <Advertisements advertisements={ads} />
+      <AdvertisementForm />
+      <Advertisements advertisements={ads} />
       </Container>
     </div>
   );
