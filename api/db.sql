@@ -14,7 +14,8 @@ CREATE TABLE statuses(
 CREATE TABLE users(
 	user_id	VARCHAR(20) PRIMARY KEY,
 	user_first_name VARCHAR(40),
-    user_last_name VARCHAR(40)
+    user_last_name VARCHAR(40),
+    user_password VARCHAR(80)
 );
 
 CREATE TABLE moderators(
@@ -49,11 +50,11 @@ INSERT INTO statuses (status_id, status_name) VALUES
 ('AC','Active'),
 ('DI','Disapproved');
 
-INSERT INTO users (user_id, user_first_name, user_last_name) VALUES
-('Jsmith', 'John', 'Smith'),
-('Ajackson', 'Ann', 'Jackson'),
-('Rkale', 'Rania', 'Kale'),
-('Sali', 'Samir', 'Ali');
+INSERT INTO users (user_id, user_first_name, user_last_name, user_password) VALUES
+('Jsmith', 'John', 'Smith','password1'),
+('Ajackson', 'Ann', 'Jackson', 'password2'),
+('Rkale', 'Rania', 'Kale', 'password3'),
+('Sali', 'Samir', 'Ali', 'password4');
 
 INSERT INTO moderators (user_id) VALUES
 ('Jsmith'),
