@@ -4,15 +4,19 @@ from flask_restful import reqparse
 import app
 
 
-parser = reqparse.RequestParser()
-parser.add_argument('username', help = 'Username cannot be blank', required = True)
-parser.add_argument('password', help = 'Password cannot be blank', required = True)
+
 
 class Authentication(Resource):
     def get(self):
         try:
-            
-            return make_response(jsonify(results), 200)
+            parser = reqparse.RequestParser()
+            parser.add_argument('user_id', type=str )
+           
+            args = parser.parse_args()
+            if app.AuthenticationModel.query.filter_by(user_id=args['user_id']).first() :
+                return make_response("Error: User exists")        
+
+
         except Exception as e:
             return {'Message': 'Error: ' + str(e)}, 500
 
@@ -43,8 +47,8 @@ class Authentication(Resource):
 
             user = app.AuthenticationModel.query.filter_by(user_id=args['user_id']).first()
 
-            if advertisement is None:
-                return make_response('Error: advertisement not found', 404)
+            if user is None:
+                return make_response('Error: user not found', 404)
 
             app.db.session.delete(user)
             app.db.session.commit()
@@ -56,12 +60,18 @@ class UserLogin(Resource):
     def post(self):
         try:
             parser = reqparse.RequestParser()
-            login_user = app.AuthenticationModel.query.filter_by(user_id=args['user_id']).first()
+            parser.add_argument('login_user', type=str )
+            parser.add_argument('login_password', type=str )
+           
+            args = parser.parse_args()
 
-            if not login_user:
+            current_user = app.AuthenticationModel.query.filter_by(user_id=args['login_user']).first()
+
+            if not current_user:
                 return {"error":"User not in DB. Register as a new user"}
 
-            if login_user.user_password == user_password:
-                return {
-                    
-                }
+            if current_user.user_password == login_password:
+                return make_response('Success: User logged in', 200)
+
+        except Exception as e:
+            return make_response("Error " + str(e) , 500)
