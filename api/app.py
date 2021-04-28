@@ -21,6 +21,15 @@ cors = CORS(app, resources={
 class AdvertisementsModel(db.Model):
     __table__ = db.Model.metadata.tables['advertisement_manager' + '.advertisements']
 
+class UserRegistrationModel(db.Model):
+    __table__ = db.Model.metadata.tables['advertisement_manager' + '.users']
+
+
 from advertisements import Advertisements
+import authentication
 
 api.add_resource(Advertisements, '/advertisements')
+api.add_resource(authentication.Authentication, '/authentication')
+api.add_resource(authentication.UserLogin, '/user')
+
+

@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div>
       <Container style={{ marginTop: 40, width: "80%" }}>
-      <AdvertisementForm />
+      <Login />
       <Advertisements advertisements={ads} />
       </Container>
     </div>

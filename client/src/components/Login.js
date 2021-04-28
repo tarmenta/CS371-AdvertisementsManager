@@ -11,7 +11,8 @@ const Login = () => {
         <Form >
         <Form.Field>
           <label>Login</label>
-          <input placeholder='UserName' />
+          <Form.Input placeholder= "UserName"
+
         </Form.Field>
         <Form.Field>
           <input placeholder='Password' />

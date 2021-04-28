@@ -12,7 +12,7 @@ class Advertisements(Resource):
             for r in rows:
                 result = {}
                 for c in app.AdvertisementsModel.__table__.columns:
-                    result[c.name] = getattr(r, c.name)
+                    result[s.name] = getattr(r, c.name)
                 results.append(result)
             return make_response(jsonify(results), 200)
         except Exception as e:
